@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DUI</title>
+    <link rel="stylesheet" href="main.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <h1>Header</h1>
+      <div class="burger-menu">
+        <div id="bar-container" class="bar-container">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </div>
+      </div>
+    </header>
+    <nav id="menu-container" class="menu-container">
+      <ul class="nav-list">
+        <li class="nav-item">Home</li>
+        <li class="nav-item">Products</li>
+        <li class="nav-item">Contact</li>
+        <li class="nav-item">About us</li>
+      </ul>
+    </nav>
+    <section data-photo-section class="photo-section">
+      <ul class="slide-list" data-slides>
+        <li class="slide" data-active-slide="true">
+          <img
+            data-image="1"
+            src="https://source.unsplash.com/78A265wPiO4"
+            alt="Nature image #1"
+          />
+        </li>
+        <li class="slide">
+          <img
+            data-image="2"
+            src="https://source.unsplash.com/eOpewngf68w"
+            alt="Nature image #2"
+          />
+        </li>
+        <li class="slide">
+          <img
+            data-image="3"
+            src="https://source.unsplash.com/ndN00KmbJ1c"
+            alt="Nature image #3"
+          />
+        </li>
+        <li class="slide">
+          <img
+            data-image="4"
+            src="https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
+            alt="Nature image #4"
+          />
+        </li>
+      </ul>
+      <div class="controls-container">
+        <div data-tabs class="tabs-container">
+          <div data-tab class="tab" data-active-tab="true"></div>
+          <div data-tab class="tab"></div>
+          <div data-tab class="tab"></div>
+          <div data-tab class="tab"></div>
+        </div>
+      </div>
+      <button data-arrow="previous" class="control-arrow previous">
+        &#8249;
+      </button>
+      <button data-arrow="next" class="control-arrow next">&#8250;</button>
+    </section>
+  </body>
+</html>
