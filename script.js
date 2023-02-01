@@ -18,15 +18,18 @@ tabs.forEach((tab) => {
 
 function handleTab() {
   if (this.hasAttribute(['data-active-tab'])) return;
-  console.log('b');
+
   const slideSection = this.closest('[data-photo-section]');
   const tabContainer = slideSection.querySelector('[data-tabs]');
   const activeTab = tabContainer.querySelector('[data-active-tab]');
-  const activeTabIndex = [...activeTab.parentNode.children].indexOf(activeTab);
 
-  // let newTabIndex = activeTabIndex;
   this.dataset.activeTab = true;
   delete activeTab.dataset.activeTab;
+
+  const activeTabIndex = [...this.parentNode.children].indexOf(this);
+
+  // let newTabIndex = activeTabIndex;
+  updateSlide(slideSection, activeTabIndex);
 }
 
 function handleArrow() {
@@ -49,4 +52,39 @@ function handleArrow() {
 
   slideList.children[newSlideIndex].dataset.activeSlide = 'true';
   delete slideList.children[currentSlideIndex].dataset.activeSlide;
+
+  updateTab(slideSection, newSlideIndex);
 }
+
+function updateSlide(slideSection, index) {
+  const slideList = slideSection.querySelector('[data-slides]');
+  const activeSlide = slideSection.querySelector('[data-active-slide]');
+
+  slideList.children[index].dataset.activeSlide = true;
+  delete activeSlide.dataset.activeSlide;
+}
+
+function updateTab(slideSection, index) {
+  const tabContainer = slideSection.querySelector('[data-tabs]');
+  const activeTab = tabContainer.querySelector('[data-active-tab]');
+
+  tabContainer.children[index].dataset.activeTab = true;
+  delete activeTab.dataset.activeTab;
+}
+
+setInterval(() => {
+  const slideSection = document.querySelector('[data-photo-section]');
+  const slideList = slideSection.querySelector('[data-slides]');
+  const currentSlide = slideList.querySelector('[data-active-slide]');
+  const currentSlideIndex = [...currentSlide.parentNode.children].indexOf(
+    currentSlide
+  );
+
+  let newSlideIndex = currentSlideIndex;
+  currentSlideIndex !== slideList.children.length - 1
+    ? (newSlideIndex += 1)
+    : (newSlideIndex = 0);
+
+  updateSlide(slideSection, newSlideIndex);
+  updateTab(slideSection, newSlideIndex);
+}, 5000);
